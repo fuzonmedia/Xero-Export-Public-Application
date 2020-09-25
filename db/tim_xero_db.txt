@@ -1,0 +1,237 @@
+
+
+
+CREATE TABLE IF NOT EXISTS `xeroaccount` (
+  `xeroAccountID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `AccountID` varchar(50) NOT NULL,
+  `Code` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name` varchar(80) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TaxType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `EnablePaymentsToAccount` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroAccountID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `xeroitem` (
+  `xeroItemID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `ItemID` varchar(50) NOT NULL,
+  `Code` varchar(80) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+
+
+
+`PurchaseDetails_UnitPrice` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`PurchaseDetails_AccountCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`SalesDetails_UnitPrice` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`SalesDetails_AccountCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+
+  PRIMARY KEY (`xeroItemID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+
+
+CREATE TABLE IF NOT EXISTS `xerocontact` (
+  `xeroContactID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `ContactID` varchar(50) NOT NULL,
+  `Name` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FirstName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LastName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EmailAddress` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `ContactStatus` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`AccountsReceivable_Outstanding` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`AccountsReceivable_Overdue` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`AccountsPayable_Outstanding` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`AccountsPayable_Overdue` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`IsSupplier` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`IsCustomer` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+  PRIMARY KEY (`xeroContactID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+CREATE TABLE IF NOT EXISTS `xerocreditnote` (
+  `xeroCreditNoteID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `CreditNoteID` varchar(50) NOT NULL,
+  `Date` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Total` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CreditNoteNumber` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CurrencyCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`ContactID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Name` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`FullyPaidOnDate` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroCreditNoteID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `xeroemployee` (
+  `xeroEmployeeID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `EmployeeID` varchar(50) NOT NULL,
+  `FirstName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LastName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroEmployeeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+
+CREATE TABLE IF NOT EXISTS `xeroinvoice` (
+  `xeroInvoiceID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `InvoiceID` varchar(50) NOT NULL,
+  `InvoiceNumber` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Reference` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CurrencyCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Date` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Total` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SubTotal` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TotalTax` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `AmountDue` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `AmountPaid` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+
+`ContactID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`DueDate` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`CreditNoteID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`AppliedAmount` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+  PRIMARY KEY (`xeroInvoiceID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+
+CREATE TABLE IF NOT EXISTS `xerojournal` (
+  `xeroJournalID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `JournalID` varchar(50) NOT NULL,
+  `JournalNumber` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Reference` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `JournalDate` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroJournalID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+
+CREATE TABLE IF NOT EXISTS `xeromanualjournal` (
+  `xeroManualJournalID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `ManualJournalID` varchar(50) NOT NULL,
+  `LineAmountTypes` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Narration` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Date` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroManualJournalID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+CREATE TABLE IF NOT EXISTS `xeroorganisation` (
+  `xeroAPIKey` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `APIKey` varchar(50) NOT NULL,
+  `Name` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LegalName` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `BaseCurrency` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `OrganisationStatus` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PeriodLockDate` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+
+`OrganisationType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`TaxNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`CreatedDateUTC` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`OrganisationEntityType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`CountryCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`Addresses_1_AddressType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_1_AddressLine1` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_1_AddressLine2` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_1_City` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_1_PostalCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_2_AddressType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_2_AddressLine1` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_2_AddressLine2` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_2_City` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Addresses_2_PostalCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`Phones_1_PhoneType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_1_PhoneNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_1_PhoneAreaCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`Phones_2_PhoneType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_2_PhoneNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_2_PhoneAreaCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`Phones_3_PhoneType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_3_PhoneNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_3_PhoneAreaCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`Phones_4_PhoneType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_4_PhoneNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+`Phones_4_PhoneAreaCode` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+  PRIMARY KEY (`xeroAPIKey`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `xeropayment` (
+  `xeroPaymentID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `PaymentID` varchar(50) NOT NULL,
+  `Date` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Amount` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PaymentType` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `InvoiceID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+
+`AccountID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroPaymentID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `xeroreceipt` (
+  `xeroReceiptID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `ReceiptID` varchar(50) NOT NULL,
+  `ReceiptNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Date` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SubTotal` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TotalTax` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Total` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroReceiptID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
+CREATE TABLE IF NOT EXISTS `xerouser` (
+  `xeroXUserID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userID` int(11) unsigned NOT NULL,
+  `XUserID` varchar(50) NOT NULL,
+  `FirstName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LastName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `OrganisationRole` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`xeroXUserID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+
