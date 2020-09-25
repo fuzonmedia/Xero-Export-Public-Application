@@ -1,0 +1,29 @@
+"Balance Sheet","Demo Company (Global)","As at 30 June 2015"
+"","30 Jun 2015","30 Jun 2014",
+"Assets"
+"Bank"
+"Business Bank Account","1760.54","0.00",
+"Total Bank","1760.54","0.00",
+"Current Assets"
+"Accounts Receivable","9194.51","0.00",
+"Total Current Assets","9194.51","0.00",
+"Fixed Assets"
+"Computer Equipment","3774.49","0.00",
+"Office Equipment","923.79","0.00",
+"Total Fixed Assets","4698.28","0.00",
+""
+"Total Assets","15653.33","0.00",
+"Liabilities"
+"Current Liabilities"
+"Accounts Payable","8386.76","0.00",
+"Historical Adjustment","4130.98","0.00",
+"Sales Tax","-10.04","0.00",
+"Unpaid Expense Claims","115.95","0.00",
+"Total Current Liabilities","12623.65","0.00",
+""
+"Total Liabilities","12623.65","0.00",
+""
+"Net Assets","3029.68","0.00",
+"Equity"
+"Current Year Earnings","3029.68","0.00",
+"Total Equity","3029.68","0.00",
